@@ -1,0 +1,257 @@
+\documentclass[10pt, twocolumn]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1cm]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+% \usepackage{colortbl}
+
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries\sffamily}{\thesection}{1em}{}
+
+\newcommand{\command}[2]{\textcolor{blue}{#1}~\dotfill{}~#2\\} % Custom command for adding a shorcut
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%-------------------------------------------------
+% En español
+
+\thispagestyle{empty} % eliminar el número de página
+
+\begin{center}
+    {\LARGE\bfseries Gmsh guía rápida} \\ 
+    {Dorian Linero - Martín Estrada} \\
+    {Universidad Nacional de Colombia}
+\end{center}
+
+
+\section*{Navegación}
+
+\command{Flecha izquierda}{Ir al paso de tiempo anterior}
+\command{Flecha derecha}{Ir al siguiente paso de tiempo}
+\command{Flecha arriba}{Hacer visible la vista anterior}
+\command{Flecha abajo}{Hacer visible la siguiente vista}
+\command{0}{Recargar geometría}
+\command{Ctrl+0 o 9}{Recargar proyecto completo}
+\command{1 o F1}{Malla de líneas}
+\command{2 o F2}{Malla de superficies}
+\command{3 o F3}{Malla de volúmenes}
+\command{Escape}{Cancelar zoom/selección con lazo, alternar selección}
+\command{e}{Finalizar/aceptar selec. en modo de creación de geometría}
+\command{g}{Ir al módulo de geometría}
+\command{m}{Ir al módulo de malla}
+\command{p}{Ir al módulo de post-procesamiento}
+\command{q}{Abortar selección en modo de creación de geometría}
+\command{s}{Ir al módulo de solucionador}
+\command{x}{Alternar congelar coord. x en modo de creación de geom.}
+\command{y}{Alternar congelar coord. y en modo de creación de geom.}
+\command{z}{Alternar congelar coord. z en modo de creación de geom.}
+
+
+\section*{Opciones de Vista}
+
+\command{Shift+a}{Traer todas las ventanas al frente}
+\command{Shift+g}{Mostrar opciones de geometría}
+\command{Shift+m}{Mostrar opciones de malla}
+\command{Shift+o}{Mostrar opciones generales}
+\command{Shift+p}{Mostrar opciones de post-procesamiento}
+\command{Shift+s}{Mostrar opciones de solucionador}
+\command{Shift+u}{Mostrar plugins de vista de post-procesamiento}
+\command{Shift+w}{Mostrar opciones de vista de post-procesamiento}
+\command{Shift+x}{Mover solo a lo largo de x en modo de geometría}
+\command{Shift+y}{Mover solo a lo largo de y en modo de geometría}
+\command{Shift+z}{Mover solo a lo largo de z en modo de geometría}
+\command{Shift+Escape}{Habilitar selección completa con el ratón}
+
+\section*{Operaciones de Archivo}
+
+\command{Ctrl+d}{Adjuntar/desprender menú}
+\command{Ctrl+e}{Exportar proyecto}
+\command{Ctrl+f}{Entrar en pantalla completa}
+\command{Ctrl+i}{Mostrar ventana de estadísticas}
+\command{Ctrl+j}{Guardar opciones del modelo}
+\command{Ctrl+l}{Mostrar consola de mensajes}
+\command{Ctrl+m}{Minimizar ventana}
+\command{Ctrl+n}{Crear nuevo archivo de proyecto}
+\command{Ctrl+o}{Abrir archivo de proyecto}
+\command{Ctrl+q}{Salir}
+\command{Ctrl+r}{Renombrar archivo de proyecto}
+\command{Ctrl+s}{Guardar malla en formato predeterminado}
+
+\section*{Opciones Avanzadas}
+
+\command{Shift+Ctrl+c}{Mostrar ventana de plano de corte}
+\command{Shift+Ctrl+h}{Mostrar opciones actuales y espacio de trabajo}
+\command{Shift+Ctrl+j}{Guardar opciones como predeterminadas}
+\command{Shift+Ctrl+m}{Mostrar ventana de manipulador}
+\command{Shift+Ctrl+n}{Mostrar ventana de opciones}
+\command{Shift+Ctrl+o}{Fusionar archivo(s)}
+\command{Shift+Ctrl+r}{Abrir el penúltimo archivo abierto}
+\command{Shift+Ctrl+u}{Mostrar ventana de plugins}
+\command{Shift+Ctrl+v}{Mostrar ventana de visibilidad}
+
+\section*{Varios}
+
+\command{Alt+a}{Alternar entre modos de ejes}
+\command{Alt+b}{Ocultar/mostrar cajas delimitadoras}
+\command{Alt+c}{Alternar entre esquemas de color predefinidos}
+\command{Alt+e}{Ocultar/Mostrar contornos de elementos para post-pro}
+\command{Alt+f}{Cambiar modo de redibujo (rápido/completo)}
+\command{Alt+h}{Ocultar/mostrar todas las vistas de post-pro}
+\command{Alt+i}{Ocultar/mostrar todas las escalas de vista de post-pro}
+\command{Alt+l}{Ocultar/mostrar líneas de geometría}
+\command{Alt+m}{Alternar visibilidad de todas las entidades de malla}
+\command{Alt+n}{Ocultar/mostrar las anotaciones de vista de post-pro}
+\command{Alt+o}{Cambiar modo de proyección (orto/persp)}
+\command{Alt+p}{Ocultar/mostrar puntos de geometría}
+\command{Alt+r}{Alternar entre modos de rango para vistas de post-pro}
+\command{Alt+s}{Ocultar/mostrar superficies de geometría}
+\command{Alt+t}{Alternar entre modos de intervalo para vistas post-pro}
+\command{Alt+v}{Ocultar/mostrar volúmenes de geometría}
+\command{Alt+w}{Habilitar/deshabilitar toda la iluminación}
+\command{Alt+x}{Establecer vista X}
+\command{Alt+y}{Establecer vista Y}
+\command{Alt+z}{Establecer vista Z}
+\command{Alt+1}{Establecer vista 1:1}
+\command{Alt+Shift+a}{Ocultar/mostrar ejes pequeños}
+\command{Alt+Shift+b}{Ocultar/mostrar caras de volumen de malla}
+\command{Alt+Shift+c}{Alternar entre mapas de color predefinidos}
+\command{Alt+Shift+d}{Ocultar/mostrar caras de superficie de malla}
+\command{Alt+Shift+l}{Ocultar/mostrar líneas de malla}
+\command{Alt+Shift+p}{Ocultar/mostrar nodos de malla}
+\command{Alt+Shift+s}{Ocultar/mostrar bordes de superficie de malla}
+\command{Alt+Shift+t}{Igual que Alt+t, pero con modo numérico}
+\command{Alt+Shift+v}{Ocultar/mostrar bordes de volumen de malla}
+\command{Alt+Shift+x}{Establecer vista -X}
+\command{Alt+Shift+y}{Establecer vista -Y}
+\command{Alt+Shift+z}{Establecer vista -Z}
+\command{Alt+Shift+1}{Restablecer caja delim. alrededor de entidades}
+\command{Alt+Ctrl+1}{Sincronizar escala entre vistas}
+
+
+%-------------------------------------------------
+% En inglés
+
+\newpage 
+\thispagestyle{empty} % remove page number
+
+\begin{center}
+    {\LARGE\bfseries Gmsh cheatsheet} \\ 
+    {Dorian Linero - Martín Estrada} \\
+    {Universidad Nacional de Colombia}
+\end{center}
+
+
+\section*{Navigation}
+
+\command{Left arrow}{Go to previous time step}
+\command{Right arrow}{Go to next time step}
+\command{Up arrow}{Make previous view visible}
+\command{Down arrow}{Make next view visible}
+\command{0}{Reload geometry}
+\command{Ctrl+0 or 9}{Reload full project}
+\command{1 or F1}{Mesh lines}
+\command{2 or F2}{Mesh surfaces}
+\command{3 or F3}{Mesh volumes}
+\command{Escape}{Cancel lasso zoom/selection, toggle mouse selection}
+\command{e}{End/accept selection in geometry creation mode}
+\command{g}{Go to geometry module}
+\command{m}{Go to mesh module}
+\command{p}{Go to post-processing module}
+\command{q}{Abort selection in geometry creation mode}
+\command{s}{Go to solver module}
+\command{x}{Toggle x coordinate freeze in geometry creation mode}
+\command{y}{Toggle y coordinate freeze in geometry creation mode}
+\command{z}{Toggle z coordinate freeze in geometry creation mode}
+
+\section*{View Options}
+
+\command{Shift+a}{Bring all windows to front}
+\command{Shift+g}{Show geometry options}
+\command{Shift+m}{Show mesh options}
+\command{Shift+o}{Show general options}
+\command{Shift+p}{Show post-processing options}
+\command{Shift+s}{Show solver options}
+\command{Shift+u}{Show post-processing view plugins}
+\command{Shift+w}{Show post-processing view options}
+\command{Shift+x}{Move only along x coordinate in geometry mode}
+\command{Shift+y}{Move only along y coordinate in geometry mode}
+\command{Shift+z}{Move only along z coordinate in geometry mode}
+\command{Shift+Escape}{Enable full mouse selection}
+
+\section*{File Operations}
+
+\command{Ctrl+d}{Attach/detach menu}
+\command{Ctrl+e}{Export project}
+\command{Ctrl+f}{Enter full screen}
+\command{Ctrl+i}{Show statistics window}
+\command{Ctrl+j}{Save model options}
+\command{Ctrl+l}{Show message console}
+\command{Ctrl+m}{Minimize window}
+\command{Ctrl+n}{Create new project file}
+\command{Ctrl+o}{Open project file}
+\command{Ctrl+q}{Quit}
+\command{Ctrl+r}{Rename project file}
+\command{Ctrl+s}{Save mesh in default format}
+
+\section*{Advanced Options}
+
+\command{Shift+Ctrl+c}{Show clipping plane window}
+\command{Shift+Ctrl+h}{Show current options and workspace window}
+\command{Shift+Ctrl+j}{Save options as default}
+\command{Shift+Ctrl+m}{Show manipulator window}
+\command{Shift+Ctrl+n}{Show option window}
+\command{Shift+Ctrl+o}{Merge file(s)}
+\command{Shift+Ctrl+r}{Open next-to-last opened file}
+\command{Shift+Ctrl+u}{Show plugin window}
+\command{Shift+Ctrl+v}{Show visibility window}
+
+\section*{Miscellaneous}
+
+\command{Alt+a}{Loop through axes modes}
+\command{Alt+b}{Hide/show bounding boxes}
+\command{Alt+c}{Loop through predefined color schemes}
+\command{Alt+e}{Hide/Show element outlines for visible post-pro views}
+\command{Alt+f}{Change redraw mode (fast/full)}
+\command{Alt+h}{Hide/show all post-processing views}
+\command{Alt+i}{Hide/show all post-processing view scales}
+\command{Alt+l}{Hide/show geometry lines}
+\command{Alt+m}{Toggle visibility of all mesh entities}
+\command{Alt+n}{Hide/show all post-processing view annotations}
+\command{Alt+o}{Change projection mode (orthographic/perspective)}
+\command{Alt+p}{Hide/show geometry points}
+\command{Alt+r}{Loop through range modes for visible post-pro views}
+\command{Alt+s}{Hide/show geometry surfaces}
+\command{Alt+t}{Loop through interval modes for visible post-pro views}
+\command{Alt+v}{Hide/show geometry volumes}
+\command{Alt+w}{Enable/disable all lighting}
+\command{Alt+x}{Set X view}
+\command{Alt+y}{Set Y view}
+\command{Alt+z}{Set Z view}
+\command{Alt+1}{Set 1:1 view}
+\command{Alt+Shift+a}{Hide/show small axes}
+\command{Alt+Shift+b}{Hide/show mesh volume faces}
+\command{Alt+Shift+c}{Loop through predefined colormaps}
+\command{Alt+Shift+d}{Hide/show mesh surface faces}
+\command{Alt+Shift+l}{Hide/show mesh lines}
+\command{Alt+Shift+p}{Hide/show mesh nodes}
+\command{Alt+Shift+s}{Hide/show mesh surface edges}
+\command{Alt+Shift+t}{Same as Alt+t, but with numeric mode included}
+\command{Alt+Shift+v}{Hide/show mesh volume edges}
+\command{Alt+Shift+x}{Set -X view}
+\command{Alt+Shift+y}{Set -Y view}
+\command{Alt+Shift+z}{Set -Z view}
+\command{Alt+Shift+1}{Reset bounding box around visible entities}
+\command{Alt+Ctrl+1}{Sync scale between viewports}
+
+
+\end{document}
